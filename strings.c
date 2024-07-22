@@ -9,9 +9,10 @@ int _putchar(char c)
 int _strlen(const char *str)
 {
 	int length = 0;
+
 	while (str[length] != '\0')
 	{
 		length++;
 	}
-	return length;
+	return (length);
 }

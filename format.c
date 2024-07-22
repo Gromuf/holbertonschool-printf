@@ -44,7 +44,7 @@ void _printString(va_list arg)
  * This function simply prints the '%' character using the _putchar
  * function. It allows displaying the '%' symbol in the output text.
  */
-void printPercent()
+void printPercent(void)
 {
 	_putchar('%');
 }

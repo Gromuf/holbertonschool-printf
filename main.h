@@ -12,7 +12,7 @@ void _printChar(va_list arg);
 
 void _printString(va_list arg);
 
-void _printPercent();
+void _printPercent(void);
 
 typedef struct printer
 {
