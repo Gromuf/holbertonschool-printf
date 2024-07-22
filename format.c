@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- * _printChar - Affiche un caractère.
- * @arg: Liste d'arguments contenant le caractère à afficher.
+ * _printChar - Prints a character.
+ * @arg: List of arguments containing the character to be printed.
  *
- * La fonction extrait un caractère de la liste d'arguments et l'affiche
- * en utilisant la fonction _putchar. Le caractère est récupéré comme un
- * entier (int), car va_arg traite les arguments variadiques comme des
- * entiers.
+ * This function extracts a character from the argument list and prints it
+ * using the _putchar function. The character is retrieved as an int,
+ * because va_arg treats variadic arguments as integers.
  */
 void _printChar(va_list arg)
 {
@@ -18,13 +17,13 @@ void _printChar(va_list arg)
 }
 
 /**
- * _printString - Affiche une chaîne de caractères.
- * @arg: Liste d'arguments contenant la chaîne de caractères à afficher.
+ * _printString - Prints a string.
+ * @arg: List of arguments containing the string to be printed.
  *
- * La fonction extrait une chaîne de caractères de la liste d'arguments et
- * l'affiche caractère par caractère en utilisant la fonction _putchar. La
- * fonction continue à afficher les caractères jusqu'à ce qu'elle rencontre
- * le caractère nul ('\0'), indiquant la fin de la chaîne.
+ * This function extracts a string from the argument list and prints it
+ * character by character using the _putchar function. It continues to
+ * print characters until it encounters the null character ('\0'), which
+ * indicates the end of the string.
  */
 void _printString(va_list arg)
 {
@@ -40,10 +39,10 @@ void _printString(va_list arg)
 }
 
 /**
- * printPercent - Affiche le caractère '%' littéralement.
+ * printPercent - Prints the '%' character literally.
  *
- * La fonction affiche simplement le caractère '%' en utilisant la fonction
- * _putchar. Cela permet de montrer le symbole '%' dans le texte affiché.
+ * This function simply prints the '%' character using the _putchar
+ * function. It allows displaying the '%' symbol in the output text.
  */
 void printPercent()
 {
