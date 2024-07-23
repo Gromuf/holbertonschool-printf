@@ -50,7 +50,7 @@ For support, email 9540@holbertonstudents.com or 9546@holbertonstudents.com or j
 ## 🛠 Skills
 shell, C...
 
-## 🚀 About Me
+## 🚀 About We
 We are junior developer...
 
 ## Authors
