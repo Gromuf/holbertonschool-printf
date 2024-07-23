@@ -3,17 +3,43 @@
 
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdint.h>
 #include <stdio.h>
 
-/*helper function*/
 int _putchar(char c);
-void _printchar(va_list args, int *ptr);
-void _printstr(va_list args, int *ptr);
-void printpercent (va_list args, int *ptr);
-void _printdec(va_list args, int *ptr);
-void _printint(va_list args, int *ptr);
-
-/*prototype for _printf*/
 int _printf(const char *format, ...);
+int _printChar(va_list args);
+int _printString(va_list args);
+int _printPercent(va_list args);
+
+/*int _strlen(const char *str);*/
+/*int _printDecimal(va_list args);*/
+/*int _printInteger(va_list args);*/
+/*int (*get_format(char c))(va_list);*/
+
+/**
+ * struct print_t - Structure to map format specifiers to functions.
+ * @cara: The format specifier, such as 'c', 's', or '%'.
+ * @func: A pointer to a function that takes a va_list and returns an integer.
+ *        This function handles printing the data for the format specifier.
+ *
+ * Description:
+ * This structure links a format specifier to a specific printing function.
+ * When a format specifier is encountered, the associated function is called
+ * to handle and print the corresponding data.
+ *
+ * Example usage:
+ * struct print_t prt[] = {
+ *     {'c', print_char_function},
+ *     {'s', print_string_function},
+ *     {'%', print_percent_function},
+ *     {0, NULL}   End of the specifier list
+ * };
+ */
+typedef struct print_t
+{
+	char cara; /*anciennement format remplacé par cara*/
+	int (*func)(va_list args);
+} print_t;
 
 #endif
