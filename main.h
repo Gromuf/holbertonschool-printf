@@ -8,11 +8,11 @@ int _strlen(const char *str);
 
 int _printf(const char *format, ...);
 
-void _printChar(va_list arg);
+int _printChar(va_list arg);
 
-void _printString(va_list arg);
+int _printString(va_list arg);
 
-void _printPercent(void);
+int _printPercent(void);
 
 int (*get_format(char c))(va_list);
 

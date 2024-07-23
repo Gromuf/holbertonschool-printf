@@ -1,50 +1,61 @@
 #include "main.h"
 
 /**
- * _printChar - Prints a character.
- * @arg: List of arguments containing the character to be printed.
+ * _printChar - Prints a character from a va_list
+ * @arg: The va_list containing the character to print
  *
- * This function extracts a character from the argument list and prints it
- * using the _putchar function. The character is retrieved as an int,
- * because va_arg treats variadic arguments as integers.
+ * Description: This function retrieves a character from the va_list
+ * argument and prints it using the _putchar function.
+ *
+ * Return: The number of characters printed (always 1)
  */
-void _printChar(va_list arg)
+int _printChar(va_list arg)
 {
 	char c;
 
 	c = va_arg(arg, int);
-	_putchar(c);
+	return (_putchar(c));
 }
 
 /**
- * _printString - Prints a string.
- * @arg: List of arguments containing the string to be printed.
+ * _printString - Prints a string from a va_list
+ * @arg: The va_list containing the string to print
  *
- * This function extracts a string from the argument list and prints it
- * character by character using the _putchar function. It continues to
- * print characters until it encounters the null character ('\0'), which
- * indicates the end of the string.
+ * Description: This function retrieves a string from the va_list argument and
+ * prints it character by character using the _putchar function.
+ *
+ * Return: The number of characters printed
  */
-void _printString(va_list arg)
+int _printString(va_list arg)
 {
 	char *s;
+	int i = 0;
+	int count = 0;
 
 	s = va_arg(arg, char *);
 
 	while (*s != '\0')
 	{
-		_putchar(*s);
-		s++;
+		_putchar(s[i]);
+		i++;
+		count++;
 	}
+	return (count);
 }
 
 /**
- * printPercent - Prints the '%' character literally.
+ * printPercent - Prints a percent sign from a va_list
+ * @arg: The va_list containing the character to print
  *
- * This function simply prints the '%' character using the _putchar
- * function. It allows displaying the '%' symbol in the output text.
+ * Description: This function retrieves an integer from the va_list argument
+ * and prints it as a character using the _putchar function.
+ *
+ * Return: The number of characters printed (always 1)
  */
-void printPercent(void)
+int printPercent(va_list arg)
 {
-	_putchar('%');
+	int i;
+
+	i = va_arg(arg, int);
+	return (_putchar(i));
 }
