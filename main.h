@@ -14,6 +14,8 @@ void _printString(va_list arg);
 
 void _printPercent(void);
 
+int (*get_format(char c))(va_list);
+
 typedef struct printer
 {
 	char format;
