@@ -6,11 +6,36 @@
 #include <stdint.h>
 #include <stdio.h>
 
-int _putchar(char c);
+/*prototype printf*/
 int _printf(const char *format, ...);
+
+/*helper function printf*/
+/*0*/
+int _putchar(char c);
+
+/*1 'c'*/
 int _printChar(va_list args);
+
+/*2 's'*/
 int _printString(va_list args);
+
+/*3 '%'*/
 int _printPercent(va_list args);
+
+/*4 'd' and 'i'*/
+int _printInt(va_list args);
+
+/*5 'u'*/
+int _printUnsigned(va_list args);
+
+/*6 'o'*/
+int _printOctal(va_list args);
+
+/*7 'x' and 'X'*/
+int _printHex(va_list args);
+
+/*8 'p'*/
+int _printPointer(va_list args);
 
 /*int _strlen(const char *str);*/
 /*int _printDecimal(va_list args);*/
@@ -32,7 +57,7 @@ int _printPercent(va_list args);
  * struct print_t prt[] = {
  *     {'c', print_char_function},
  *     {'s', print_string_function},
- *     {'%', print_percent_function},
+ *     {'%', print_percent_function}, ........
  *     {0, NULL}   End of the specifier list
  * };
  */

@@ -22,6 +22,13 @@ int _printf(const char *format, ...)
 		{'c', _printChar},
 		{'s', _printString},
 		{'%', _printPercent},
+		{'d', _printInt},
+		{'i', _printInt},
+		{'u', _printUnsigned},
+		{'o', _printOctal},
+		{'x', _printHex},
+		{'X', _printHex},
+		{'p', _printPointer},
 		{0, NULL} /*fin du tableau des specificateurs*/
 	};
 
