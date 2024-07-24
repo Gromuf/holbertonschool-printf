@@ -5,70 +5,76 @@
 #include <stdint.h>
 
 /**
-* _printf - a simple version of function printf
-* @format: the format containing the text to be written to stdout
-*
-* Return: the number of character printed (excluding \0 used to end)
-*/
+ * spec - Handles the printing of a specifier
+ * @format: the format string
+ * @i: the current index in the format string
+ * @args: the list of arguments
+ * @printed_chars: the number of characters printed so far
+ *
+ * Return: the updated number of characters printed
+ */
+int spec(const char *format, unsigned int *i, va_list args, int printed_chars)
+/* fix function more than 40 lines */
+{
+	print_t prt[] = {
+		{'c', _printChar}, {'s', _printString}, {'%', _printPercent},
+		{'d', _printInt}, {'i', _printInt}, {'u', _printUnsigned},
+		{'o', _printOctal}, {'x', _printHex}, {'X', _printHex},
+		{'p', _printPointer}, {0, NULL} /* end of specifiers array */
+	};
+
+	unsigned int j = 0;
+
+	while (prt[j].cara) /*iterate elem print_t struct prt if <> NULL */
+	{
+		if (format[*i] == prt[j].cara)  /*if cara match specifier, true*/
+		{
+			printed_chars += prt[j].func(args);
+			/*funct prt[j].func is call with list arg*/
+			return (printed_chars);
+		}
+		j++; /*incrementation index*/
+	}
+	printed_chars += _putchar('%'); /* NULL _putchar % ->not in specifier*/
+	if (format[*i]) /*if not NULL _putchar format specifier*/
+		printed_chars += _putchar(format[*i]); /*print the next caracter*/
+
+	return (printed_chars);
+}
+
+/**
+ * _printf - a simple version of the printf function
+ * @format: the format string containing the text to be written to stdout
+ *
+ * Return: the number of characters printed
+ * (excluding the null byte used to end output to strings)
+ */
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int i = 0, j;
+	unsigned int i = 0;
 	int printed_chars = 0;
 
-	/*declaration de la structure print-t pour stocker les specificateur et*/
-	/*les fonctions associées*/
-	print_t prt[] = {
-		{'c', _printChar},
-		{'s', _printString},
-		{'%', _printPercent},
-		{'d', _printInt},
-		{'i', _printInt},
-		{'u', _printUnsigned},
-		{'o', _printOctal},
-		{'x', _printHex},
-		{'X', _printHex},
-		{'p', _printPointer},
-		{0, NULL} /*fin du tableau des specificateurs*/
-	};
-
- 	if (format == NULL) /*verification of format not NULL*/
+	if (format == NULL) /* check if format is NULL */
 		return (-1);
 
-	va_start(args, format);/*initialisation de la list des arguments*/
+	va_start(args, format); /* initialize the argument list */
 
-	while (format && format[i]) /* ou (*(format + i))*/
+	while (format && format[i]) /*if format not NULL and i<>'\0'*/
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			/*second loop to find the matching*/
-			j = 0;
-			while (prt[j].cara) /*verifie les specificateurs disponible*/
-			{
-				if (format[i] == prt[j].cara)/*compare le specificateur */
-				{
-					printed_chars += prt[j].func(args); /*call function approe*/
-					break;
-				}
-				j++;
-			}
-			/*if no matching specifier is fond, print '%'*/
-			if (!prt[j].cara)
-			{
-				printed_chars += _putchar('%'); /*imprime le %*/
-				if (format[i]) /*si le caractère suivant existe*/
-					printed_chars += _putchar(format[i]); /*print next caract*/
-			}
+			i++; /* iteration and next call funct specifier format*/
+			printed_chars = spec(format, &i, args, printed_chars);
 		}
 		else
 		{
-			/*print regular caracters*/
+			/* print regular characters and count of printed characters is updated*/
 			printed_chars += _putchar(format[i]);
 		}
-		i++; /* correction de l'incrementation*/
+		i++;
 	}
 
-	va_end(args); /*end use list_arg*/
-	return (printed_chars); /*retourne le nombre de caractere print*/
+	va_end(args); /* end using the argument list */
+	return (printed_chars); /* return the number of characters printed */
 }
