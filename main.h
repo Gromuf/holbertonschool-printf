@@ -40,7 +40,7 @@ int _printHex(va_list args);
 int _printPointer(va_list args);
 
 /*9 'b'*/
-int _printUnsignedInt(va_list args)
+int _printUnsignedInt(va_list args);
 
 /*int _strlen(const char *str);*/
 /*int _printDecimal(va_list args);*/
