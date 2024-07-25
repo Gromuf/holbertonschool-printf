@@ -39,6 +39,9 @@ int _printHex(va_list args);
 /*8 'p'*/
 int _printPointer(va_list args);
 
+/*9 'b'*/
+int _printUnsignedInt(va_list args)
+
 /*int _strlen(const char *str);*/
 /*int _printDecimal(va_list args);*/
 /*int _printInteger(va_list args);*/
@@ -65,7 +68,7 @@ int _printPointer(va_list args);
  */
 typedef struct print_t
 {
-	char cara; /*anciennement format remplacé par cara*/
+	char cara; /*char format is char cara now*/
 	int (*func)(va_list args);
 } print_t;
 
