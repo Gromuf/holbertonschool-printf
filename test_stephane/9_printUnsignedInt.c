@@ -1,46 +1,50 @@
+#include "main.h"
 #include <stdarg.h>
-#include <unistd.h>
 #include <stdlib.h>
 
 /**
- * _printUnsignedInt - Prints an unsigned integer
- * @args: A va_list containing the unsigned integer to print
+ * _printBinary - Prints an unsigned integer in binary.
+ * @args: List of arguments containing the unsigned integer to print.
  *
- * Return: The number of characters printed
+ * Return: The number of characters printed.
  */
-int _printUnsignedInt(va_list args)
+int _printBinary(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
-	char buffer[20];  /*is big for content max unsigned int*/
-	int i = 0, j, len;
-	char temp;
+	char *binary_str;
+	int count = 0;
+	int i, j;
+	unsigned int temp;
 
-	/*cast entier to string*/
 	if (num == 0)
 	{
-		buffer[i++] = '0';
+		return (_putchar('0'));
 	}
-	else
+
+	/* Allocate memory for binary representation */
+	binary_str = malloc(33); /* Enough for 32 bits + null terminator */
+	if (binary_str == NULL)
+		return (0); /* Handle malloc failure */
+
+	/* Create binary string */
+	binary_str[32] = '\0'; /* Null terminator */
+	temp = num;
+	for (i = 31; i >= 0; i--)
 	{
-		while (num != 0)
-		{
-			buffer[i++] = (num % 10) + '0';
-			num /= 10;
-		}
-	}
-	buffer[i] = '\0';
-
-	/*reverse string*/
-	len = i;
-	for (j = 0; j < len / 2; j++)
-	{
-		temp = buffer[j];
-		buffer[j] = buffer[len - j - 1];
-		buffer[len - j - 1] = temp;
+		binary_str[i] = (temp % 2) ? '1' : '0';
+		temp /= 2;
 	}
 
-	/*print string*/
-	write(1, buffer, len);
+	/* Skip leading zeros */
+	i = 0;
+	while (i < 32 && binary_str[i] == '0')
+		i++;
 
-	return (len);  /*return count of string*/
+	/* Print binary string */
+	for (j = i; j < 32; j++)
+		count += _putchar(binary_str[j]);
+
+	free(binary_str); /* Free the allocated memory */
+
+	return (count);
 }
