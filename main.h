@@ -26,6 +26,7 @@ int _printPercent(va_list args);
 
 /*4 'd' and 'i'*/
 int _printInt(va_list args);
+int _printIntHelper(unsigned int n);
 
 /*5 'u'*/
 int _printUnsigned(va_list args);

@@ -1,5 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
+#include <unistd.h>
+#include <limits.h>
 
 /**
  * _printInt - Prints an integer.
@@ -9,28 +11,44 @@
  */
 int _printInt(va_list args)
 {
-	int num = va_arg(args, int);
+	int n = va_arg(args, int);
 	int count = 0;
-	char buffer[11]; /* Enough for -2147483648 and '\0' */
-	int i = 0, j;
+	unsigned int num;
 
-	if (num == 0)
-		return (_putchar('0'));
-
-	if (num < 0)
+	if (n < 0)
 	{
 		count += _putchar('-');
-		num = -num;
+		num = -n;
 	}
-
-	while (num > 0)
+	else
 	{
-		buffer[i++] = (num % 10) + '0';
-		num /= 10;
+	num = n;
 	}
 
-	for (j = i - 1; j >= 0; j--)
-		count += _putchar(buffer[j]);
+	if (num / 10)
+	{
+		count += _printIntHelper(num / 10);
+	}
+		count += _putchar((num % 10) + '0');
+
+	return (count);
+}
+
+/**
+ * _printIntHelper - Helper function to print an unsigned integer recursively.
+ * @n: The unsigned integer to print.
+ *
+ * Return: The number of characters printed.
+ */
+int _printIntHelper(unsigned int n)
+{
+	int count = 0;
+
+	if (n / 10)
+	{
+		count += _printIntHelper(n / 10);
+	}
+	count += _putchar((n % 10) + '0');
 
 	return (count);
 }
