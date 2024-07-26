@@ -9,6 +9,7 @@
  */
 int _printPercent(va_list args)
 {
-	(void)args; /* To avoid unused parameter warning */
-	return (_putchar('%'));
+	(void)args; */ args unused */
+
+	return (_putchar('%%'));
 }

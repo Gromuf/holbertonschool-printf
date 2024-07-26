@@ -9,7 +9,7 @@
  */
 int _printChar(va_list args)
 {
-	char c = va_arg(args, int); /* Cast to int due to default promotion */
+	char c = va_arg(args, int); /* Cast to int*/
 
 	return (_putchar(c));
 }
