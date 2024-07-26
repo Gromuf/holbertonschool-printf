@@ -76,4 +76,4 @@ typedef struct print_t
 	int (*func)(va_list args);
 } print_t;
 
-#endif
+#endif /*MAIN_H*/
