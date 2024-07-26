@@ -34,7 +34,10 @@ int _printUnsigned(va_list args);
 int _printOctal(va_list args);
 
 /*7 'x' and 'X'*/
-int _printHex(va_list args);
+/*int _printHex(va_list args);*/
+int _printHex(char specifier, va_list args);
+int _printHexLower(va_list args);
+int _printHexUpper(va_list args);
 
 /*8 'p'*/
 int _printPointer(va_list args);
