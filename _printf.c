@@ -20,7 +20,7 @@ int spec(const char *format, unsigned int *i, va_list args, int printed_chars)
 		{'c', _printChar}, {'s', _printString}, {'%', _printPercent},
 		{'d', _printInt}, {'i', _printInt}, {'u', _printUnsigned},
 		{'o', _printOctal}, {'x', _printHexLower}, {'X', _printHexUpper},
-		{'p', _printPointer}, {0, NULL} /* end of specifiers array */
+		{'p', _printPointer}, {'b', _printBinary}, {0, NULL} /* end of specif. [] */
 	};
 
 	unsigned int j = 0;
