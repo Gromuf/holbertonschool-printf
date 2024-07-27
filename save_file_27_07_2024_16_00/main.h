@@ -8,7 +8,6 @@
 
 /*prototype printf*/
 int _printf(const char *format, ...);
-
 int spe(const char *format, unsigned int *i, va_list args, int *printed_chars);
 
 /*helper function printf*/
@@ -21,7 +20,7 @@ int _printChar(va_list args);
 /*2 's'*/
 int _printString(va_list args);
 char *_strcopy(const char *src);
-
+size_t _strlen(const char *s);
 /*3 '%'*/
 int _printPercent(va_list args);
 

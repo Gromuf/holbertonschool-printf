@@ -21,7 +21,8 @@ int _printChar(va_list args);
 
 /*2 's'*/
 int _printString(va_list args);
-
+char *_strcopy(const char *src);
+size_t _strlen(const char *s);
 /*3 '%'*/
 int _printPercent(va_list args);
 
@@ -46,7 +47,6 @@ int _printPointer(va_list args);
 
 /*9 'b'*/
 int _printBinary(va_list args);
-
 /*void buffer_init(void);*/
 void flush_buffer(void);
 void buffer_add(char c);

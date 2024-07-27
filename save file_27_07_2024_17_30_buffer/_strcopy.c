@@ -22,5 +22,5 @@ char *_strcopy(const char *src)
         return (NULL);
 
     memcpy(dest, src, len);
-    return (dest);
+    return dest;
 }
