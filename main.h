@@ -9,7 +9,7 @@
 /*prototype printf*/
 int _printf(const char *format, ...);
 
-int spec(const char *format, unsigned int *i, va_list args, int printed_chars);
+int spec(const char *format, unsigned int *i, va_list args, int *printed_chars);
 
 /*helper function printf*/
 /*0*/
@@ -45,11 +45,6 @@ int _printPointer(va_list args);
 
 /*9 'b'*/
 int _printBinary(va_list args);
-
-/*int _strlen(const char *str);*/
-/*int _printDecimal(va_list args);*/
-/*int _printInteger(va_list args);*/
-/*int (*get_format(char c))(va_list);*/
 
 /**
  * struct print_t - Structure to map format specifiers to functions.
