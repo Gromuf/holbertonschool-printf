@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "main.h"
 #include <stdint.h>
+#include "buffer.h"
 
 /**
  * spec - Handles the printing of a specifier
@@ -13,7 +14,7 @@
  *
  * Return: the updated number of characters printed
  */
-int spec(const char *format, unsigned int *i, va_list args, int *printed_chars)
+int spe(const char *format, unsigned int *i, va_list args, int *printed_chars)
 /* fix function more than 40 lines */
 {
 	print_t prt[] = {
@@ -31,7 +32,7 @@ int spec(const char *format, unsigned int *i, va_list args, int *printed_chars)
 		{0, NULL} /* end of specif. [] */
 	};
 
-unsigned int j = 0;
+	unsigned int j = 0;
 
 	while (prt[j].cara) /*iterate elem print_t struct prt if <> NULL */
 	{
@@ -43,9 +44,12 @@ unsigned int j = 0;
 		}
 		j++; /*incrementation index*/
 	}
-	*printed_chars += _putchar('%'); /* NULL _putchar % ->not in specifier*/
+
+	buffer_add('%'); /*use buffer_add to accumulate characters*/
+	/**printed_chars += _putchar('%');  NULL _putchar % ->not in specifier*/
 	if (format[*i]) /*if not NULL _putchar format specifier*/
-		*printed_chars += _putchar(format[*i]); /*print the next caracter*/
+		/**printed_chars += _putchar(format[*i]); print the next caracter*/
+		buffer_add(format[*i]);
 
 	return (*printed_chars);
 }

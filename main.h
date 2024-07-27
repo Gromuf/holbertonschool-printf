@@ -9,7 +9,7 @@
 /*prototype printf*/
 int _printf(const char *format, ...);
 
-int spec(const char *format, unsigned int *i, va_list args, int *printed_chars);
+int spe(const char *format, unsigned int *i, va_list args, int *printed_chars);
 
 /*helper function printf*/
 /*0*/

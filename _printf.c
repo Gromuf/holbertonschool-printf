@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++; /* iteration and next call funct specifier format*/
-			printed_chars = spec(format, &i, args, &printed_chars);
+			printed_chars = spe(format, &i, args, &printed_chars);
 		}
 		else
 		{
