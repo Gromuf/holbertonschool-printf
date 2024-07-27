@@ -9,9 +9,9 @@
 
 /*prototype printf*/
 int _printf(const char *format, ...);
-
 int spe(const char *format, unsigned int *i, va_list args, int *printed_chars);
-
+char *_strcopy(const char *src);
+size_t _strlen(const char *s);
 /*helper function printf*/
 /*0*/
 int _putchar(char c);
@@ -66,7 +66,7 @@ void buffer_add(char c);
  * struct print_t prt[] = {
  *     {'c', print_char_function},
  *     {'s', print_string_function},
- *     {'%', print_percent_function}, ........
+ *     {'%', print_percent_function}, 'd' ;'i'........
  *     {0, NULL}   End of the specifier list
  * };
  */
