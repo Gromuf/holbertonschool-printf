@@ -37,15 +37,15 @@ unsigned int j = 0;
 	{
 		if (format[*i] == prt[j].cara)  /*if cara match specifier, true*/
 		{
-			printed_chars += prt[j].func(args);
+			*printed_chars += prt[j].func(args);
 			/*funct prt[j].func is call with list arg*/
 			return (*printed_chars);
 		}
 		j++; /*incrementation index*/
 	}
-	printed_chars += _putchar('%'); /* NULL _putchar % ->not in specifier*/
+	*printed_chars += _putchar('%'); /* NULL _putchar % ->not in specifier*/
 	if (format[*i]) /*if not NULL _putchar format specifier*/
-		printed_chars += _putchar(format[*i]); /*print the next caracter*/
+		*printed_chars += _putchar(format[*i]); /*print the next caracter*/
 
 	return (*printed_chars);
 }
