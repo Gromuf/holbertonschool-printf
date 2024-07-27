@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "buffer.h"
 
 /*prototype printf*/
 int _printf(const char *format, ...);
@@ -45,6 +46,10 @@ int _printPointer(va_list args);
 
 /*9 'b'*/
 int _printBinary(va_list args);
+
+/*void buffer_init(void);*/
+void flush_buffer(void);
+void buffer_add(char c);
 
 /**
  * struct print_t - Structure to map format specifiers to functions.

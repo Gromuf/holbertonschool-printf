@@ -5,22 +5,25 @@
 
 /* Static buffer and index */
 static char buffer[BUFFER_SIZE];
-static int buffer_index;
+static size_t buffer_index = 0;
 
 /**
- * buffer_init - Initializes the buffer and buffer index.
+ * buffer_add - Adds a character to the buffer.
+ *
+ * @c: The character to add to the buffer.
  *
  * Description:
- * This function sets the buffer index to zero. It should be called
- * once during the setup phase of the program to prepare the buffer
- * for use. The buffer itself is statically allocated and not
- * explicitly initialized here.
+ * Adds a single character to the buffer. If the buffer is full,
+ * it will first flush the buffer before adding the new character.
  */
-void buffer_init(void)
+void buffer_add(char c)
 {
-	buffer_index = 0;
+        if (buffer_index >= BUFFER_SIZE)
+        {
+                flush_buffer();
+        }
+        buffer[buffer_index++] = c;
 }
-
 /**
  * flush_buffer - Flushes the contents of the buffer to standard output.
  *
@@ -45,20 +48,3 @@ void flush_buffer(void)
 	}
 }
 
-/**
- * buffer_add - Adds a character to the buffer.
- *
- * @c: The character to add to the buffer.
- *
- * Description:
- * Adds a single character to the buffer. If the buffer is full,
- * it will first flush the buffer before adding the new character.
- */
-void buffer_add(char c)
-{
-	if (buffer_index >= BUFFER_SIZE)
-	{
-		flush_buffer();
-	}
-	buffer[buffer_index++] = c;
-}
