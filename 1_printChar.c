@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <unistd.h>
 
 /**
  * _printChar - Prints a single character.
@@ -10,5 +11,6 @@
 int _printChar(va_list args)
 {
 	char c = va_arg(args, int); /* Cast to int due to default promotion */
+	
 	return (_putchar(c));
 }

@@ -13,11 +13,14 @@ int main(void)
 	int len2;
 	unsigned int ui;
 	void *addr;
+	double d = 123.456;  /*Déclaration de la variable d pour les tests flottants*/
+
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	ui = (unsigned int)INT_MAX + 1024;
 	/*addr = (void *)0x7ffe637541f0; bug gcc test with adress*/
+	/*addr = (void *)(uintptr_t)0x7ffe637541f0;Use uintptr_t for portability*/
 	addr = (void *)0x1000; /*small adress answer chatgpt */
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
@@ -41,5 +44,15 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
+
+	_printf("Integer with width:[%10d]\n", 42);
+    printf("Integer with width:[%10d]\n", 42);
+    _printf("Floating point:[%.2f]\n", d);
+    printf("Floating point:[%.2f]\n", d);
+    _printf("Scientific notation:[%e]\n", d);
+    printf("Scientific notation:[%e]\n", d);
+    _printf("Percentage:[%d%%]\n", 50);
+    printf("Percentage:[%d%%]\n", 50);
+
 	return (0);
 }

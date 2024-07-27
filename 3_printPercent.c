@@ -9,6 +9,8 @@
  */
 int _printPercent(va_list args)
 {
-	(void)args; /* To avoid unused parameter warning */
-	return (_putchar('%'));
+   (void)args;  /*To avoid unused parameter warning*/
+    
+    /* Print the percent sign directly */
+   return (_putchar('%'));
 }

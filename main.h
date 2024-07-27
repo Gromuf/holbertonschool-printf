@@ -9,9 +9,13 @@
 /*prototype printf*/
 int _printf(const char *format, ...);
 
+/*helper handle printf --> specifier*/
+int spec(const char *format, unsigned int *i, va_list args);
+
 /*helper function printf*/
 /*0*/
 int _putchar(char c);
+/*int _print_len(const char *format, ...);*/
 
 /*1 'c'*/
 int _printChar(va_list args);
@@ -24,6 +28,7 @@ int _printPercent(va_list args);
 
 /*4 'd' and 'i'*/
 int _printInt(va_list args);
+int _printIntHelper(int n);
 
 /*5 'u'*/
 int _printUnsigned(va_list args);
@@ -32,11 +37,17 @@ int _printUnsigned(va_list args);
 int _printOctal(va_list args);
 
 /*7 'x' and 'X'*/
-int _printHex(va_list args);
+/*int _printHex(va_list args);*/
+int _printHex(char specifier, va_list args);
+int _printHexLower(va_list args);
+int _printHexUpper(va_list args);
 
 /*8 'p'*/
 int _printPointer(va_list args);
 
+/*9 'b'*/
+/*int _printBinary(va_list args);*/
+ 
 /*int _strlen(const char *str);*/
 /*int _printDecimal(va_list args);*/
 /*int _printInteger(va_list args);*/
@@ -57,14 +68,16 @@ int _printPointer(va_list args);
  * struct print_t prt[] = {
  *     {'c', print_char_function},
  *     {'s', print_string_function},
- *     {'%', print_percent_function}, ........
- *     {0, NULL}   End of the specifier list
+ *     {'%', print_percent_function},
+ *     {'d', _printInt_function},
+ *	   {'i', _printInt_function},
+ *	   {0, NULL}   End of the specifier list
  * };
  */
 typedef struct print_t
 {
-	char cara; /*anciennement format remplacé par cara*/
+	char cara; /*now char format is char cara*/
 	int (*func)(va_list args);
 } print_t;
 
-#endif
+#endif  /* MAIN_H */
