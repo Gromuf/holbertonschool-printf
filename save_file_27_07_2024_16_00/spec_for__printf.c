@@ -44,11 +44,9 @@ int spe(const char *format, unsigned int *i, va_list args, int *printed_chars)
 		}
 		j++; /*incrementation index*/
 	}
-	/*buffer_add('%'); use buffer_add to accumulate characters*/
 	*printed_chars += _putchar('%');  /*NULL _putchar % ->not in specifier*/
 	if (format[*i]) /*if not NULL _putchar format specifier*/
 		printed_chars += _putchar(format[*i]); /*print the next caracter*/
-		/*buffer_add(format[*i]);*/
-
+	
 	return (*printed_chars);
 }

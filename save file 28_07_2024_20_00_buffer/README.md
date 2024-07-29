@@ -8,8 +8,8 @@ we can compile the project using this command line : gcc -Wall -Werror -Wextra -
 ## Requirements :
 
 
-## Flowchart : 
-![alt text](<Flowchart color _printf.png>)
+## Flowchart : ![alt text](image.png)
+
 
 ## Run Locally
 
@@ -28,20 +28,7 @@ Go to the project directory
 ## Compilation GCC
 
 ```bash
-  gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c    (in this way)
-```
-
-```bash
-  gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c -o printf    (mandatory task)
-```
-## verification of Betty style and Betty doc
-
-```bash
-  betty <file.c>
-```
-If you want more informations and install Betty linter: https://github.com/hs-hq/Betty
-```bash
-  git clone  https://github.com/hs-hq/Betty
+  gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 ```
 
 ## Support

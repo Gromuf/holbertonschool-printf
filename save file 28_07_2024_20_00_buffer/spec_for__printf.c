@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include "main.h"
 #include <stdint.h>
-/*#include "buffer.h"*/
+#include "buffer.h"
 
 /**
- * spe - Handles the printing of a specifier
+ * spec - Handles the printing of a specifier
  * @format: the format string
  * @i: the current index in the format string
  * @args: the list of arguments
@@ -44,9 +44,12 @@ int spe(const char *format, unsigned int *i, va_list args, int *printed_chars)
 		}
 		j++; /*incrementation index*/
 	}
-	*printed_chars += _putchar('%');  /*NULL _putchar % ->not in specifier*/
+
+	buffer_add('%'); /*use buffer_add to accumulate characters*/
+	/**printed_chars += _putchar('%');  NULL _putchar % ->not in specifier*/
 	if (format[*i]) /*if not NULL _putchar format specifier*/
-		printed_chars += _putchar(format[*i]); /*print the next caracter*/
-	
+		/**printed_chars += _putchar(format[*i]); print the next caracter*/
+		buffer_add(format[*i]);
+
 	return (*printed_chars);
 }

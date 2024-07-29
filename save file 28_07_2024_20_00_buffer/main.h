@@ -5,11 +5,13 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "buffer.h"
 
 /*prototype printf*/
 int _printf(const char *format, ...);
 int spe(const char *format, unsigned int *i, va_list args, int *printed_chars);
-
+char *_strcopy(const char *src);
+size_t _strlen(const char *s);
 /*helper function printf*/
 /*0*/
 int _putchar(char c);
@@ -19,8 +21,7 @@ int _printChar(va_list args);
 
 /*2 's'*/
 int _printString(va_list args);
-char *_strcopy(const char *src);
-size_t _strlen(const char *s);
+
 /*3 '%'*/
 int _printPercent(va_list args);
 
@@ -45,9 +46,10 @@ int _printPointer(va_list args);
 
 /*9 'b'*/
 int _printBinary(va_list args);
-/*int _printDecimal(va_list args);*/
-/*int _printInteger(va_list args);*/
-/*int (*get_format(char c))(va_list);*/
+
+/*void buffer_init(void);*/
+void flush_buffer(void);
+void buffer_add(char c);
 
 /**
  * struct print_t - Structure to map format specifiers to functions.
@@ -64,7 +66,7 @@ int _printBinary(va_list args);
  * struct print_t prt[] = {
  *     {'c', print_char_function},
  *     {'s', print_string_function},
- *     {'%', print_percent_function}, ........
+ *     {'%', print_percent_function}, 'd' ;'i'........
  *     {0, NULL}   End of the specifier list
  * };
  */
