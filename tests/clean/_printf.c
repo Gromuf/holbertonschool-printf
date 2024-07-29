@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			/*prints formatted output and counts characters.*/
+			/* print regular characters and count of printed characters is updated*/
 			printed_chars += _putchar(format[i]);
 		}
 		i++;
